@@ -1,0 +1,1201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>RideSimulator.taxi_sim API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>RideSimulator.taxi_sim</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import time
+import logging
+from collections import defaultdict
+
+import simpy
+import numpy as np
+from tqdm.auto import tqdm
+
+import RideSimulator.reward_parameters as rp
+from RideSimulator.Driver import Driver
+from RideSimulator.Grid import Grid
+from RideSimulator.State import State
+from RideSimulator.Trip import Trip
+from RideSimulator.TripGenerator import TripGenerator, read_data
+from RideSimulator.sim_analyzer import SimAnalyzer
+
+
+def create_drivers(env: simpy.Environment, num: int, map_grid: Grid) -&gt; [Driver]:
+    &#34;&#34;&#34;
+    Creates n driver objects in the env Environment.
+    The drivers will have randomly generated starting locations and each driver will be assigned to the nearest driver
+    pool.
+    
+    :param env: simpy environment
+    :param num: number of drivers
+    :param map_grid: grid object the drivers are located in
+    :return: list of driver objects
+    &#34;&#34;&#34;
+    drivers = []
+    for i in range(num):
+        driver_loc = map_grid.get_random_location()
+        spot_id = map_grid.get_nearest_spot(driver_loc)[0]
+        driver = Driver(env=env, driver_id=i, location=driver_loc, spot_id=spot_id)
+        map_grid.assign_spot(driver)
+        drivers.append(driver)
+    return drivers
+
+
+def check_trip_status(env: simpy.Environment, trip: Trip, action: simpy.Process, peak_time: bool):
+    &#34;&#34;&#34;
+    If the nearest driver pool is empty, the trip will be interrupted after a fixed amount of time units and cancel the
+    driver request.
+
+    If it is a peak time the waiting time will increase to manage the demand of drivers.
+    
+    :param env: simpy environment
+    :param trip: trip to be monitored
+    :param action: driver searching process
+    :param peak_time: true if it a peak time
+    &#34;&#34;&#34;
+    count = 0
+    msg = False
+    timeout = TIMEOUT_CHECK
+
+    if peak_time:
+        timeout = timeout * 2
+
+    while True:
+        # If the trip is interrupted 5 times without a driver, the trip gets cancelled.
+        if count &gt;= 5:
+            msg = True
+
+        yield env.timeout(timeout)
+        count += 1
+
+        if not trip.driver_found and not trip.cancelled:
+            logging.debug(f&#34;Interrupting {trip.id} at {env.now}&#34;)
+            action.interrupt({&#34;cancel&#34;: msg})
+        else:
+            break
+
+
+def release_driver(env: simpy.Environment, driver: Driver, driver_pool: simpy.FilterStore):
+    &#34;&#34;&#34;
+    After a trip is completed the driver is released to the nearest driver pool
+
+    :param env: simpy environment
+    :param driver: driver object
+    :param driver_pool: nearest driver pool
+    &#34;&#34;&#34;
+    if env.now % TIME_UNITS_PER_MIN == 0:
+        yield env.timeout(1)
+    driver.in_trip = False
+    driver_pool.put(driver)
+
+
+def get_env_state(env: simpy.Environment, trip: Trip, driver: Driver, action: str, map_grid: Grid) -&gt; dict:
+    &#34;&#34;&#34;
+    Create the state dict of the environment of the driver and returns the (state, action) pair of the agent.
+
+    :param env: simpy environment
+    :param trip: trip assigned to the driver
+    :param driver: driver agent
+    :param action: action taken by the driver
+    :param map_grid: grid object
+    :return: (state, action) pair as a dictionary
+    &#34;&#34;&#34;
+    trip_state = trip.get_state_info()
+    driver_state = driver.get_state_info()
+
+    distances = {
+        &#34;trip_distance&#34;: map_grid.get_distance(trip_state[&#39;pick_loc&#39;], trip_state[&#39;drop_loc&#39;]),
+        &#34;pick_distance&#34;: map_grid.get_distance(driver.location, trip_state[&#39;pick_loc&#39;])
+    }
+
+    env_state = {
+        &#34;day_time&#34;: int((env.now % UNITS_PER_DAY) / (TIME_UNITS_PER_MIN * 60)),
+        &#34;per_km_c&#34;: rp.per_km_cost,
+        &#34;per_km_r&#34;: rp.unit_reward,
+        &#34;traffic&#34;: 0
+    }
+
+    return {
+        &#34;state&#34;: State(**{**trip_state, **driver_state, **env_state, **distances}),
+        &#34;action&#34;: action
+    }
+
+
+def handle_trip(env: simpy.Environment, trip_i: Trip, driver_pools: simpy.FilterStore, map_grid: Grid, policy: list,
+                trip_gen: TripGenerator):
+    &#34;&#34;&#34;
+    The progress of the trip is handled by this function.
+
+    Initially till a driver is found this will cycle through driver pools to find a free driver that accepts the trip.
+
+    Then the trip details will be updated in the &#39;trip_i&#39; object and the function will timeout for the amount of
+    distance between the driver and the rider&#39;s pickup location.
+
+    The function will again timeout for the duration of the trip and after completion the driver is released back to the
+    driver pool.
+
+    :param env: simpy environment
+    :param trip_i: trip object to be handled
+    :param driver_pools: the FilterStore where drivers without trips are located
+    :param map_grid: grid object
+    :param policy: the list of policies the drivers will use
+    &#34;&#34;&#34;
+    while not trip_i.driver_found and not trip_i.cancelled:
+        logging.debug(f&#34;{trip_i.id} looking for driver at {env.now}&#34;)
+        try:
+            # Search the filterStore for drivers with the same pool_id
+            # and that has not been assigned to the trip before.
+            with driver_pools.get(
+                    lambda d: (d.spot_id in trip_i.nearest_spots) and (d.id not in trip_i.rejected_drivers)) as req:
+                trip_i.driver = yield req
+                trip_i.driver_found = True
+                logging.debug(f&#34;{trip_i.id} got {trip_i.driver.id} at {env.now}&#34;)
+
+                if trip_i.driver_found:
+                    driver: Driver = trip_i.driver
+
+                    pickup_distance = map_grid.get_distance(driver.location, trip_i.pickup_loc)
+                    trip_distance = map_grid.get_distance(trip_i.pickup_loc, trip_i.drop_loc)
+                    pickup_time = np.round(pickup_distance * TIME_PER_GRID_UNIT)
+                    travel_time = np.round(trip_distance * TIME_PER_GRID_UNIT)
+
+                    # current_location = map_grid.get_location_id(driver.location)
+                    # destination = map_grid.get_location_id(trip_i.drop_loc)
+                    destination_hex_id = trip_gen.grid.hex_overlay.get_closest_hex(
+                        [trip_i.drop_loc[0], trip_i.drop_loc[1]]).id
+
+                    state_dict = get_env_state(env, trip_i, driver, &#34;None&#34;, map_grid)
+                    env_state: State = state_dict[&#39;state&#39;]
+
+                    # Observations array TODO - add idle time until this trip
+                    observations = [env_state.pickup_distance, env_state.trip_distance,
+                                    env_state.day_time,
+                                    trip_i.drop_loc[0],
+                                    trip_i.drop_loc[1],
+                                    max(-1, (driver.weekly_target - env_state.completed_trip_count))]
+
+                    # Check whether the driver accepts the trip.
+                    action = trip_i.driver.accept_ride(policy, observations)
+                    DRIVER_ACTIONS.append(
+                        [trip_i.id, driver.id, trip_i.created_time, env.now, trip_i.pickup_loc, trip_i.drop_loc,
+                         driver.location, pickup_time, travel_time, action[0].numpy()])
+                    # time_step = tf_env.step(action)
+
+                    opportunity_cost = rp.opportunity_cost * driver.opportunity_cost_weight * (
+                            env.now - driver.idle_time_begin)
+
+                    if action[0].numpy() == 1:
+                        logging.debug(
+                            f&#34;{driver.id} traveling to pickup point, {trip_i.pickup_loc} from {driver.location}&#34;)
+                        trip_i.update_trip(rp.per_km_cost, rp.unit_reward, pickup_distance, trip_distance,
+                                           env_state.day_time)
+
+                        yield env.timeout(pickup_time)
+
+                        add_reward = driver.start_trip(travel_time, trip_i.drop_loc, trip_i)
+                        logging.debug(f&#34;Trip distance: {trip_distance}, time {env.now}&#34;)
+
+                        # calculate driver reward
+                        reward = driver.trip_reward_weight * trip_i.get_net_reward()
+                        if add_reward:
+                            reward += driver.reward_amount
+
+                    else:
+                        env.process(release_driver(env, driver, driver_pools))
+                        trip_i.drop_driver(driver.id, driver.location)
+                        reward = 0
+
+                    # Save the (state, action) pair in the driver&#39;s history.
+                    state_dict[&#39;observation&#39;] = observations
+                    state_dict[&#39;reward&#39;] = reward
+                    state_dict[&#39;action&#39;] = action
+                    driver.state_history.append(state_dict)
+
+        # Handle the interrupt call if the trip doesn&#39;t find a driver.
+        except simpy.Interrupt as interrupt:
+            trip_i.update_search_radius()
+            trip_i.nearest_spots = map_grid.get_nearest_spot(trip_i.pickup_loc, trip_i.search_radius)
+            if interrupt.cause[&#39;cancel&#39;]:
+                trip_i.cancelled = True
+
+    if trip_i.cancelled:
+        logging.debug(f&#34;{trip_i.id} was cancelled!&#34;)
+        return
+
+    yield env.timeout(np.round(trip_distance * TIME_PER_GRID_UNIT))
+
+    # Get the closest driver pool id and release the drive to the pool.
+    closest_driver_pool_id = map_grid.get_nearest_spot(trip_i.drop_loc)[0]
+    driver.spot_id = closest_driver_pool_id
+    driver.idle_time_begin = env.now
+
+    env.process(release_driver(env, driver, driver_pools))
+    logging.debug(
+        f&#34;{trip_i.id} finished the trip and released driver {driver.id} at {env.now} to pool {closest_driver_pool_id}&#34;)
+
+
+def check_hotspots(env: simpy.Environment, trip_generator: TripGenerator, delay: int = 5):
+    &#34;&#34;&#34;
+    This process will check every 5 minutes in simulation time for hotspots on the map. It will scan HexTiles to check
+    how many trips were generated in the tile within the past 5 minutes.
+
+    In addition to the number of trips generated in the past 5 minutes, a discounted history of the tile will also be
+    considered when classifying it as a hotspot. Therefore, if a tile becomes a hotspot it has a higher chance of
+    staying as a hotspot even if only generates a bit lower number of trips in the next time slice.
+
+    :param env: simpy environment
+    :param trip_generator: trip generator object used to create trips for the simulation
+    :param delay: how often the grid should be searched for hotspots in minutes
+    :return:
+    &#34;&#34;&#34;
+    hex_overlay = trip_generator.grid.hex_overlay
+    # print(&#34;hex count &#34;, len(hex_overlay.tiles.flatten()))
+    discount_factor = rp.discount_factor
+    threshold_count = rp.trip_threshold * (1 + discount_factor)
+    hotspot_count = 0
+    previous_hotspots = set()
+
+    try:
+        while True:
+            yield env.timeout(delay * TIME_UNITS_PER_MIN)
+            hotspots = set()
+
+            # Ids of the hexes that trips were generated in the past time slice
+            updated_hex_ids = trip_generator.updated_hex_ids
+
+            for hex_id in updated_hex_ids:
+                u_hex = hex_overlay.get_hex_from_id(hex_id=hex_id)
+                u_hex.history = u_hex.trip_count + discount_factor * u_hex.history
+                u_hex.trip_count = 0
+
+                # If the discounted value of the trip count exceeds the threshold, update the additional reward given
+                # for the trips that are generated in that tile.
+                if u_hex.history &gt; threshold_count:
+                    u_hex.update_additional_reward()
+                    hotspots.add(hex_id)
+                    hotspot_count += 1
+
+            # Hotspots become cold_spots when the number of trips generated in the HexTile falls below the threshold.
+            # Therefore, the additional reward is reset for these tiles.
+            cold_spots = previous_hotspots - hotspots
+            for cold_spot in cold_spots:
+                c_hex = hex_overlay.get_hex_from_id(hex_id=cold_spot)
+                c_hex.additional_reward = 0
+
+            # Store the hotspots of this time slice to compare with the next batch to identify colds_spots/
+            previous_hotspots = hotspots
+            trip_generator.updated_hex_ids = set()
+
+    except simpy.Interrupt as interrupt:
+        logging.debug(f&#39;{interrupt.cause}, &#34;Hotspot count:&#34;, {hotspot_count}&#39;)
+
+
+def generate_trips(env: simpy.Environment, map_grid: Grid, driver_pools: simpy.FilterStore, policy: list,
+                   trip_history: list, run_time: int, progress_bar=False, seed: int = None):
+    &#34;&#34;&#34;
+    The number of trips generated is determined by the amount of time the simulation is run.
+
+    Ths function generates trip processes and hands them over to the handle_trip() function.
+    Another process is created for each trip to check the status of the trip and to handle the timeout and cancellation.
+
+    :param env: simpy environment
+    :param map_grid: grid object where trips are located
+    :param driver_pools: the FilterStore where drivers without trips are located
+    :param policy: the list of policies the drivers will use to determine whether accept or reject the trip
+    :param trip_history: an empty list to stores all the trips generated
+    :param run_time: how long the simulation should run
+    :param progress_bar: toggle the display of the progress bar
+    :param seed: seed to be used for rng
+    &#34;&#34;&#34;
+
+    # A trip generator object handles the sampling and generation of trips using real world data.
+    trip_gen = TripGenerator(grid=map_grid, time_unit=TIME_UNITS_PER_MIN, trips_per_week=TRIPS_PER_WEEK, seed=seed)
+    hotspot_check = env.process(check_hotspots(env=env, trip_generator=trip_gen))
+
+    if progress_bar:
+        week_count = run_time / (UNITS_PER_DAY * 7)
+        final_week_days = (run_time % (UNITS_PER_DAY * 7)) / UNITS_PER_DAY
+        final_hours = (run_time % UNITS_PER_DAY) / (TIME_UNITS_PER_MIN * 60)
+
+        print(f&#34;The Simulation will run for {np.floor(week_count)} weeks, {np.floor(final_week_days)} days, &#34;
+              f&#34;{final_hours} hours.&#34;)
+
+        final_week, final_day, final_hour = (False, False, False)
+
+        # Iterate for each week
+        with tqdm(total=np.ceil(week_count), desc=&#34;Weeks&#34;, leave=False) as week_bar:
+            for z in range(np.ceil(week_count).astype(int)):
+                num_days = 7
+                if z == np.floor(week_count):
+                    final_week = True
+                    num_days = np.ceil(final_week_days).astype(int)
+
+                # Iterate for each day
+                with tqdm(total=num_days, desc=&#34;Days&#34;, leave=False) as day_bar:
+                    for y in range(num_days):
+                        num_hours = 24
+                        if y == np.floor(final_week_days) and final_week:
+                            num_hours = np.ceil(final_hour).astype(int)
+
+                        # Iterate for each hour
+                        with tqdm(total=num_hours, desc=&#34;Hours&#34;, leave=False) as hour_bar:
+                            for x in range(num_hours):
+                                for _ in range(60):
+                                    trips, peak_time = trip_gen.generate_trips(env=env)
+                                    for trip_i in trips:
+                                        trip_history.append(trip_i)
+
+                                        # Creates a trip process along with a interruption call to check the driver
+                                        # assignment.
+                                        ride_find = env.process(
+                                            handle_trip(env, trip_i, driver_pools, map_grid, policy, trip_gen))
+                                        env.process(check_trip_status(env, trip_i, ride_find, peak_time))
+                                    yield env.timeout(TIME_UNITS_PER_MIN)
+
+                                hour_bar.update(1)
+                        day_bar.update(1)
+                week_bar.update(1)
+            yield env.timeout(TIME_UNITS_PER_MIN * 5)
+            hotspot_check.interrupt(&#34;Simulation Ended&#34;)
+
+    else:
+        num_minutes = int(RUN_TIME / TIME_UNITS_PER_MIN)
+        for i in range(num_minutes):
+            trips, peak_time = trip_gen.generate_trips(env=env)
+
+            for trip_i in trips:
+                trip_history.append(trip_i)
+
+                # Creates a trip process along with a interruption call to check the driver assignment.
+                ride_find = env.process(handle_trip(env, trip_i, driver_pools, map_grid, policy, trip_gen))
+                env.process(check_trip_status(env, trip_i, ride_find, peak_time))
+
+            yield env.timeout(TIME_UNITS_PER_MIN)
+
+        yield env.timeout(TIME_UNITS_PER_MIN * 5)
+        hotspot_check.interrupt(&#34;Simulation Ended&#34;)
+
+
+def reset_week(env: simpy.Environment, driver_list: [Driver]):
+    &#34;&#34;&#34;
+    After a week is completed in the simulation there are several parameters to be reset. Such as,
+        - Driver trip count
+        - Driver weekly reward status
+        - Driver weekly goals and reward
+    Ths process takes care of those parameter once the simulation completes a week.
+
+    :param env: simpy environment
+    :param driver_list: list of drivers that the parameters should be reset
+    &#34;&#34;&#34;
+    week_duration = UNITS_PER_DAY * 7
+    num_weeks = RUN_TIME // week_duration
+    count = 0
+
+    while count &lt; num_weeks:
+        yield env.timeout(week_duration)
+        count += 1
+        logging.debug(f&#34;{&#39;*&#39; * 20} Updating driver goals {&#39;*&#39; * 20}\n&#34;)
+        for driver in driver_list:
+            # Based on the current number of trips completed the goals for the next week is calculated.
+            next_goal, next_reward = rp.get_next_goal(driver.weekly_trip_count)
+            logging.debug(
+                f&#34;Driver {driver.id} completed {driver.weekly_trip_count} trips, &#34;
+                f&#34;New goal: {next_goal}, New reward: {next_reward}&#34;)
+            driver.reset_weekly_info(next_goal, next_reward)
+        logging.debug(&#34;\n&#34;)
+
+
+def update_parameters(param_dict):
+    global TRIPS_PER_WEEK, NUM_DAYS, DRIVER_COUNT, GRID_WIDTH, GRID_HEIGHT, HEX_AREA, RUN_TIME
+    parameters = [&#34;TRIPS_PER_WEEK&#34;, &#34;NUM_DAYS&#34;, &#34;DRIVER_COUNT&#34;, &#34;GRID_WIDTH&#34;, &#34;GRID_HEIGHT&#34;, &#34;HEX_AREA&#34;]
+    for param in parameters:
+        if param in param_dict:
+            if param == &#34;TRIPS_PER_WEEK&#34;:
+                TRIPS_PER_WEEK = param_dict[param]
+            if param == &#34;NUM_DAYS&#34;:
+                NUM_DAYS = param_dict[param]
+            if param == &#34;DRIVER_COUNT&#34;:
+                DRIVER_COUNT = param_dict[param]
+            if param == &#34;GRID_WIDTH&#34;:
+                GRID_WIDTH = param_dict[param]
+            if param == &#34;GRID_HEIGHT&#34;:
+                GRID_HEIGHT = param_dict[param]
+            if param == &#34;HEX_AREA&#34;:
+                HEX_AREA = param_dict[param]
+    RUN_TIME = UNITS_PER_DAY * NUM_DAYS
+
+    # print(TRIPS_PER_WEEK, NUM_DAYS, DRIVER_COUNT, GRID_WIDTH, GRID_HEIGHT, HEX_AREA, RUN_TIME)
+
+
+GRID_UNITS_PER_KM = 4  # Number of grid units per km
+TIME_UNITS_PER_MIN = 10  # 10 simulation time unit = 1 min  !!! DON&#39;T CHANGE !!!
+MIN_PER_KM = 0.5  # Assumption: It takes 1 min to travel 1km
+
+TIME_PER_GRID_UNIT = MIN_PER_KM * TIME_UNITS_PER_MIN / GRID_UNITS_PER_KM
+TIMEOUT_CHECK = TIME_UNITS_PER_MIN * 5
+UNITS_PER_DAY = TIME_UNITS_PER_MIN * 60 * 24
+NUM_DAYS = 7
+
+TRIPS_PER_WEEK = 2000  # Average number of trips per week needed to be simulated
+RUN_TIME = UNITS_PER_DAY * NUM_DAYS  # Number of days the simulation should run
+DRIVER_ACTIONS = []
+
+DRIVER_COUNT = 20
+GRID_WIDTH = 60
+GRID_HEIGHT = 60
+HEX_AREA = 1.2 * 4
+
+read_data()
+
+
+def run_simulation(policy: list = None, debug=False, progress_bar=False, seed=None) -&gt; dict:
+    &#34;&#34;&#34;
+    This function is called with the policy list to start the simulation.
+
+    :param seed:
+    :param policy: lost of policies
+    :param debug: toggle debug log
+    :param progress_bar: toggle progress bar
+    :return: a dictionary containing the history of all the drivers with respective to the policy they used.
+    &#34;&#34;&#34;
+    if debug:
+        logging.basicConfig(level=logging.DEBUG)
+
+    if policy is None:
+        policy = [&#39;random&#39;]
+    
+    if len(policy) &gt; 1:
+        print(&#34;Multiple policies given, training driver subsets&#34;)
+        
+    elif policy[0] == &#34;random&#34;:
+        print(&#34;Using random policy&#34;)
+
+    elif policy[0] == &#34;positive&#34;:
+        print(&#34;Using positive reward policy&#34;)
+
+    elif policy[0] == &#34;all&#34;:
+        print(&#34;Using accept all policy&#34;)
+
+    else:
+        if type(policy[0] == &#39;str&#39;):
+            print(&#34;No valid action provided, using random policy&#34;)
+
+    driver_count = DRIVER_COUNT
+    interval = 6
+    grid_width = GRID_WIDTH  # 3809
+    grid_height = GRID_HEIGHT  # 2622
+    hex_area = HEX_AREA
+
+    env = simpy.Environment()
+    map_grid = Grid(env=env, width=grid_width, height=grid_height, interval=interval, num_drivers=driver_count,
+                    hex_area=hex_area, units_per_km=GRID_UNITS_PER_KM, seed=seed)
+    driver_list = create_drivers(env, driver_count, map_grid)
+    driver_pools = map_grid.driver_pools
+    trip_history = []
+
+    env.process(
+        generate_trips(env, map_grid, driver_pools, policy, trip_history, RUN_TIME, progress_bar=progress_bar,
+                       seed=seed))
+    env.process(reset_week(env, driver_list=driver_list))
+    env.run(until=(RUN_TIME + TIME_UNITS_PER_MIN * 60 * 5))
+
+    analyzer = SimAnalyzer(trips=trip_history, drivers=driver_list, actions=DRIVER_ACTIONS)
+
+    if len(driver_pools.items) != len(driver_list):
+        logging.warning(f&#39;{&#34;*&#34; * 30} &#34;DRIVERS MISSING!&#34; {&#34;*&#34; * 30}&#39;)
+
+    driver_states = defaultdict(list)
+    for item in driver_pools.items:
+        driver_states[item.id % len(policy)].append(item.state_history)
+
+    print(&#34;Number of trips generated:&#34;, len(trip_history))
+    return driver_states, analyzer</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="RideSimulator.taxi_sim.check_hotspots"><code class="name flex">
+<span>def <span class="ident">check_hotspots</span></span>(<span>env: simpy.core.Environment, trip_generator: <a title="RideSimulator.TripGenerator.TripGenerator" href="TripGenerator.html#RideSimulator.TripGenerator.TripGenerator">TripGenerator</a>, delay: int = 5)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This process will check every 5 minutes in simulation time for hotspots on the map. It will scan HexTiles to check
+how many trips were generated in the tile within the past 5 minutes.</p>
+<p>In addition to the number of trips generated in the past 5 minutes, a discounted history of the tile will also be
+considered when classifying it as a hotspot. Therefore, if a tile becomes a hotspot it has a higher chance of
+staying as a hotspot even if only generates a bit lower number of trips in the next time slice.</p>
+<p>:param env: simpy environment
+:param trip_generator: trip generator object used to create trips for the simulation
+:param delay: how often the grid should be searched for hotspots in minutes
+:return:</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def check_hotspots(env: simpy.Environment, trip_generator: TripGenerator, delay: int = 5):
+    &#34;&#34;&#34;
+    This process will check every 5 minutes in simulation time for hotspots on the map. It will scan HexTiles to check
+    how many trips were generated in the tile within the past 5 minutes.
+
+    In addition to the number of trips generated in the past 5 minutes, a discounted history of the tile will also be
+    considered when classifying it as a hotspot. Therefore, if a tile becomes a hotspot it has a higher chance of
+    staying as a hotspot even if only generates a bit lower number of trips in the next time slice.
+
+    :param env: simpy environment
+    :param trip_generator: trip generator object used to create trips for the simulation
+    :param delay: how often the grid should be searched for hotspots in minutes
+    :return:
+    &#34;&#34;&#34;
+    hex_overlay = trip_generator.grid.hex_overlay
+    # print(&#34;hex count &#34;, len(hex_overlay.tiles.flatten()))
+    discount_factor = rp.discount_factor
+    threshold_count = rp.trip_threshold * (1 + discount_factor)
+    hotspot_count = 0
+    previous_hotspots = set()
+
+    try:
+        while True:
+            yield env.timeout(delay * TIME_UNITS_PER_MIN)
+            hotspots = set()
+
+            # Ids of the hexes that trips were generated in the past time slice
+            updated_hex_ids = trip_generator.updated_hex_ids
+
+            for hex_id in updated_hex_ids:
+                u_hex = hex_overlay.get_hex_from_id(hex_id=hex_id)
+                u_hex.history = u_hex.trip_count + discount_factor * u_hex.history
+                u_hex.trip_count = 0
+
+                # If the discounted value of the trip count exceeds the threshold, update the additional reward given
+                # for the trips that are generated in that tile.
+                if u_hex.history &gt; threshold_count:
+                    u_hex.update_additional_reward()
+                    hotspots.add(hex_id)
+                    hotspot_count += 1
+
+            # Hotspots become cold_spots when the number of trips generated in the HexTile falls below the threshold.
+            # Therefore, the additional reward is reset for these tiles.
+            cold_spots = previous_hotspots - hotspots
+            for cold_spot in cold_spots:
+                c_hex = hex_overlay.get_hex_from_id(hex_id=cold_spot)
+                c_hex.additional_reward = 0
+
+            # Store the hotspots of this time slice to compare with the next batch to identify colds_spots/
+            previous_hotspots = hotspots
+            trip_generator.updated_hex_ids = set()
+
+    except simpy.Interrupt as interrupt:
+        logging.debug(f&#39;{interrupt.cause}, &#34;Hotspot count:&#34;, {hotspot_count}&#39;)</code></pre>
+</details>
+</dd>
+<dt id="RideSimulator.taxi_sim.check_trip_status"><code class="name flex">
+<span>def <span class="ident">check_trip_status</span></span>(<span>env: simpy.core.Environment, trip: <a title="RideSimulator.Trip.Trip" href="Trip.html#RideSimulator.Trip.Trip">Trip</a>, action: simpy.events.Process, peak_time: bool)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>If the nearest driver pool is empty, the trip will be interrupted after a fixed amount of time units and cancel the
+driver request.</p>
+<p>If it is a peak time the waiting time will increase to manage the demand of drivers.</p>
+<p>:param env: simpy environment
+:param trip: trip to be monitored
+:param action: driver searching process
+:param peak_time: true if it a peak time</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def check_trip_status(env: simpy.Environment, trip: Trip, action: simpy.Process, peak_time: bool):
+    &#34;&#34;&#34;
+    If the nearest driver pool is empty, the trip will be interrupted after a fixed amount of time units and cancel the
+    driver request.
+
+    If it is a peak time the waiting time will increase to manage the demand of drivers.
+    
+    :param env: simpy environment
+    :param trip: trip to be monitored
+    :param action: driver searching process
+    :param peak_time: true if it a peak time
+    &#34;&#34;&#34;
+    count = 0
+    msg = False
+    timeout = TIMEOUT_CHECK
+
+    if peak_time:
+        timeout = timeout * 2
+
+    while True:
+        # If the trip is interrupted 5 times without a driver, the trip gets cancelled.
+        if count &gt;= 5:
+            msg = True
+
+        yield env.timeout(timeout)
+        count += 1
+
+        if not trip.driver_found and not trip.cancelled:
+            logging.debug(f&#34;Interrupting {trip.id} at {env.now}&#34;)
+            action.interrupt({&#34;cancel&#34;: msg})
+        else:
+            break</code></pre>
+</details>
+</dd>
+<dt id="RideSimulator.taxi_sim.create_drivers"><code class="name flex">
+<span>def <span class="ident">create_drivers</span></span>(<span>env: simpy.core.Environment, num: int, map_grid: <a title="RideSimulator.Grid.Grid" href="Grid.html#RideSimulator.Grid.Grid">Grid</a>) ‑> [<class '<a title="RideSimulator.Driver.Driver" href="Driver.html#RideSimulator.Driver.Driver">Driver</a>'>]</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates n driver objects in the env Environment.
+The drivers will have randomly generated starting locations and each driver will be assigned to the nearest driver
+pool.</p>
+<p>:param env: simpy environment
+:param num: number of drivers
+:param map_grid: grid object the drivers are located in
+:return: list of driver objects</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create_drivers(env: simpy.Environment, num: int, map_grid: Grid) -&gt; [Driver]:
+    &#34;&#34;&#34;
+    Creates n driver objects in the env Environment.
+    The drivers will have randomly generated starting locations and each driver will be assigned to the nearest driver
+    pool.
+    
+    :param env: simpy environment
+    :param num: number of drivers
+    :param map_grid: grid object the drivers are located in
+    :return: list of driver objects
+    &#34;&#34;&#34;
+    drivers = []
+    for i in range(num):
+        driver_loc = map_grid.get_random_location()
+        spot_id = map_grid.get_nearest_spot(driver_loc)[0]
+        driver = Driver(env=env, driver_id=i, location=driver_loc, spot_id=spot_id)
+        map_grid.assign_spot(driver)
+        drivers.append(driver)
+    return drivers</code></pre>
+</details>
+</dd>
+<dt id="RideSimulator.taxi_sim.generate_trips"><code class="name flex">
+<span>def <span class="ident">generate_trips</span></span>(<span>env: simpy.core.Environment, map_grid: <a title="RideSimulator.Grid.Grid" href="Grid.html#RideSimulator.Grid.Grid">Grid</a>, driver_pools: simpy.resources.store.FilterStore, policy: list, trip_history: list, run_time: int, progress_bar=False, seed: int = None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The number of trips generated is determined by the amount of time the simulation is run.</p>
+<p>Ths function generates trip processes and hands them over to the handle_trip() function.
+Another process is created for each trip to check the status of the trip and to handle the timeout and cancellation.</p>
+<p>:param env: simpy environment
+:param map_grid: grid object where trips are located
+:param driver_pools: the FilterStore where drivers without trips are located
+:param policy: the list of policies the drivers will use to determine whether accept or reject the trip
+:param trip_history: an empty list to stores all the trips generated
+:param run_time: how long the simulation should run
+:param progress_bar: toggle the display of the progress bar
+:param seed: seed to be used for rng</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def generate_trips(env: simpy.Environment, map_grid: Grid, driver_pools: simpy.FilterStore, policy: list,
+                   trip_history: list, run_time: int, progress_bar=False, seed: int = None):
+    &#34;&#34;&#34;
+    The number of trips generated is determined by the amount of time the simulation is run.
+
+    Ths function generates trip processes and hands them over to the handle_trip() function.
+    Another process is created for each trip to check the status of the trip and to handle the timeout and cancellation.
+
+    :param env: simpy environment
+    :param map_grid: grid object where trips are located
+    :param driver_pools: the FilterStore where drivers without trips are located
+    :param policy: the list of policies the drivers will use to determine whether accept or reject the trip
+    :param trip_history: an empty list to stores all the trips generated
+    :param run_time: how long the simulation should run
+    :param progress_bar: toggle the display of the progress bar
+    :param seed: seed to be used for rng
+    &#34;&#34;&#34;
+
+    # A trip generator object handles the sampling and generation of trips using real world data.
+    trip_gen = TripGenerator(grid=map_grid, time_unit=TIME_UNITS_PER_MIN, trips_per_week=TRIPS_PER_WEEK, seed=seed)
+    hotspot_check = env.process(check_hotspots(env=env, trip_generator=trip_gen))
+
+    if progress_bar:
+        week_count = run_time / (UNITS_PER_DAY * 7)
+        final_week_days = (run_time % (UNITS_PER_DAY * 7)) / UNITS_PER_DAY
+        final_hours = (run_time % UNITS_PER_DAY) / (TIME_UNITS_PER_MIN * 60)
+
+        print(f&#34;The Simulation will run for {np.floor(week_count)} weeks, {np.floor(final_week_days)} days, &#34;
+              f&#34;{final_hours} hours.&#34;)
+
+        final_week, final_day, final_hour = (False, False, False)
+
+        # Iterate for each week
+        with tqdm(total=np.ceil(week_count), desc=&#34;Weeks&#34;, leave=False) as week_bar:
+            for z in range(np.ceil(week_count).astype(int)):
+                num_days = 7
+                if z == np.floor(week_count):
+                    final_week = True
+                    num_days = np.ceil(final_week_days).astype(int)
+
+                # Iterate for each day
+                with tqdm(total=num_days, desc=&#34;Days&#34;, leave=False) as day_bar:
+                    for y in range(num_days):
+                        num_hours = 24
+                        if y == np.floor(final_week_days) and final_week:
+                            num_hours = np.ceil(final_hour).astype(int)
+
+                        # Iterate for each hour
+                        with tqdm(total=num_hours, desc=&#34;Hours&#34;, leave=False) as hour_bar:
+                            for x in range(num_hours):
+                                for _ in range(60):
+                                    trips, peak_time = trip_gen.generate_trips(env=env)
+                                    for trip_i in trips:
+                                        trip_history.append(trip_i)
+
+                                        # Creates a trip process along with a interruption call to check the driver
+                                        # assignment.
+                                        ride_find = env.process(
+                                            handle_trip(env, trip_i, driver_pools, map_grid, policy, trip_gen))
+                                        env.process(check_trip_status(env, trip_i, ride_find, peak_time))
+                                    yield env.timeout(TIME_UNITS_PER_MIN)
+
+                                hour_bar.update(1)
+                        day_bar.update(1)
+                week_bar.update(1)
+            yield env.timeout(TIME_UNITS_PER_MIN * 5)
+            hotspot_check.interrupt(&#34;Simulation Ended&#34;)
+
+    else:
+        num_minutes = int(RUN_TIME / TIME_UNITS_PER_MIN)
+        for i in range(num_minutes):
+            trips, peak_time = trip_gen.generate_trips(env=env)
+
+            for trip_i in trips:
+                trip_history.append(trip_i)
+
+                # Creates a trip process along with a interruption call to check the driver assignment.
+                ride_find = env.process(handle_trip(env, trip_i, driver_pools, map_grid, policy, trip_gen))
+                env.process(check_trip_status(env, trip_i, ride_find, peak_time))
+
+            yield env.timeout(TIME_UNITS_PER_MIN)
+
+        yield env.timeout(TIME_UNITS_PER_MIN * 5)
+        hotspot_check.interrupt(&#34;Simulation Ended&#34;)</code></pre>
+</details>
+</dd>
+<dt id="RideSimulator.taxi_sim.get_env_state"><code class="name flex">
+<span>def <span class="ident">get_env_state</span></span>(<span>env: simpy.core.Environment, trip: <a title="RideSimulator.Trip.Trip" href="Trip.html#RideSimulator.Trip.Trip">Trip</a>, driver: <a title="RideSimulator.Driver.Driver" href="Driver.html#RideSimulator.Driver.Driver">Driver</a>, action: str, map_grid: <a title="RideSimulator.Grid.Grid" href="Grid.html#RideSimulator.Grid.Grid">Grid</a>) ‑> dict</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Create the state dict of the environment of the driver and returns the (state, action) pair of the agent.</p>
+<p>:param env: simpy environment
+:param trip: trip assigned to the driver
+:param driver: driver agent
+:param action: action taken by the driver
+:param map_grid: grid object
+:return: (state, action) pair as a dictionary</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_env_state(env: simpy.Environment, trip: Trip, driver: Driver, action: str, map_grid: Grid) -&gt; dict:
+    &#34;&#34;&#34;
+    Create the state dict of the environment of the driver and returns the (state, action) pair of the agent.
+
+    :param env: simpy environment
+    :param trip: trip assigned to the driver
+    :param driver: driver agent
+    :param action: action taken by the driver
+    :param map_grid: grid object
+    :return: (state, action) pair as a dictionary
+    &#34;&#34;&#34;
+    trip_state = trip.get_state_info()
+    driver_state = driver.get_state_info()
+
+    distances = {
+        &#34;trip_distance&#34;: map_grid.get_distance(trip_state[&#39;pick_loc&#39;], trip_state[&#39;drop_loc&#39;]),
+        &#34;pick_distance&#34;: map_grid.get_distance(driver.location, trip_state[&#39;pick_loc&#39;])
+    }
+
+    env_state = {
+        &#34;day_time&#34;: int((env.now % UNITS_PER_DAY) / (TIME_UNITS_PER_MIN * 60)),
+        &#34;per_km_c&#34;: rp.per_km_cost,
+        &#34;per_km_r&#34;: rp.unit_reward,
+        &#34;traffic&#34;: 0
+    }
+
+    return {
+        &#34;state&#34;: State(**{**trip_state, **driver_state, **env_state, **distances}),
+        &#34;action&#34;: action
+    }</code></pre>
+</details>
+</dd>
+<dt id="RideSimulator.taxi_sim.handle_trip"><code class="name flex">
+<span>def <span class="ident">handle_trip</span></span>(<span>env: simpy.core.Environment, trip_i: <a title="RideSimulator.Trip.Trip" href="Trip.html#RideSimulator.Trip.Trip">Trip</a>, driver_pools: simpy.resources.store.FilterStore, map_grid: <a title="RideSimulator.Grid.Grid" href="Grid.html#RideSimulator.Grid.Grid">Grid</a>, policy: list, trip_gen: <a title="RideSimulator.TripGenerator.TripGenerator" href="TripGenerator.html#RideSimulator.TripGenerator.TripGenerator">TripGenerator</a>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>The progress of the trip is handled by this function.</p>
+<p>Initially till a driver is found this will cycle through driver pools to find a free driver that accepts the trip.</p>
+<p>Then the trip details will be updated in the 'trip_i' object and the function will timeout for the amount of
+distance between the driver and the rider's pickup location.</p>
+<p>The function will again timeout for the duration of the trip and after completion the driver is released back to the
+driver pool.</p>
+<p>:param env: simpy environment
+:param trip_i: trip object to be handled
+:param driver_pools: the FilterStore where drivers without trips are located
+:param map_grid: grid object
+:param policy: the list of policies the drivers will use</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def handle_trip(env: simpy.Environment, trip_i: Trip, driver_pools: simpy.FilterStore, map_grid: Grid, policy: list,
+                trip_gen: TripGenerator):
+    &#34;&#34;&#34;
+    The progress of the trip is handled by this function.
+
+    Initially till a driver is found this will cycle through driver pools to find a free driver that accepts the trip.
+
+    Then the trip details will be updated in the &#39;trip_i&#39; object and the function will timeout for the amount of
+    distance between the driver and the rider&#39;s pickup location.
+
+    The function will again timeout for the duration of the trip and after completion the driver is released back to the
+    driver pool.
+
+    :param env: simpy environment
+    :param trip_i: trip object to be handled
+    :param driver_pools: the FilterStore where drivers without trips are located
+    :param map_grid: grid object
+    :param policy: the list of policies the drivers will use
+    &#34;&#34;&#34;
+    while not trip_i.driver_found and not trip_i.cancelled:
+        logging.debug(f&#34;{trip_i.id} looking for driver at {env.now}&#34;)
+        try:
+            # Search the filterStore for drivers with the same pool_id
+            # and that has not been assigned to the trip before.
+            with driver_pools.get(
+                    lambda d: (d.spot_id in trip_i.nearest_spots) and (d.id not in trip_i.rejected_drivers)) as req:
+                trip_i.driver = yield req
+                trip_i.driver_found = True
+                logging.debug(f&#34;{trip_i.id} got {trip_i.driver.id} at {env.now}&#34;)
+
+                if trip_i.driver_found:
+                    driver: Driver = trip_i.driver
+
+                    pickup_distance = map_grid.get_distance(driver.location, trip_i.pickup_loc)
+                    trip_distance = map_grid.get_distance(trip_i.pickup_loc, trip_i.drop_loc)
+                    pickup_time = np.round(pickup_distance * TIME_PER_GRID_UNIT)
+                    travel_time = np.round(trip_distance * TIME_PER_GRID_UNIT)
+
+                    # current_location = map_grid.get_location_id(driver.location)
+                    # destination = map_grid.get_location_id(trip_i.drop_loc)
+                    destination_hex_id = trip_gen.grid.hex_overlay.get_closest_hex(
+                        [trip_i.drop_loc[0], trip_i.drop_loc[1]]).id
+
+                    state_dict = get_env_state(env, trip_i, driver, &#34;None&#34;, map_grid)
+                    env_state: State = state_dict[&#39;state&#39;]
+
+                    # Observations array TODO - add idle time until this trip
+                    observations = [env_state.pickup_distance, env_state.trip_distance,
+                                    env_state.day_time,
+                                    trip_i.drop_loc[0],
+                                    trip_i.drop_loc[1],
+                                    max(-1, (driver.weekly_target - env_state.completed_trip_count))]
+
+                    # Check whether the driver accepts the trip.
+                    action = trip_i.driver.accept_ride(policy, observations)
+                    DRIVER_ACTIONS.append(
+                        [trip_i.id, driver.id, trip_i.created_time, env.now, trip_i.pickup_loc, trip_i.drop_loc,
+                         driver.location, pickup_time, travel_time, action[0].numpy()])
+                    # time_step = tf_env.step(action)
+
+                    opportunity_cost = rp.opportunity_cost * driver.opportunity_cost_weight * (
+                            env.now - driver.idle_time_begin)
+
+                    if action[0].numpy() == 1:
+                        logging.debug(
+                            f&#34;{driver.id} traveling to pickup point, {trip_i.pickup_loc} from {driver.location}&#34;)
+                        trip_i.update_trip(rp.per_km_cost, rp.unit_reward, pickup_distance, trip_distance,
+                                           env_state.day_time)
+
+                        yield env.timeout(pickup_time)
+
+                        add_reward = driver.start_trip(travel_time, trip_i.drop_loc, trip_i)
+                        logging.debug(f&#34;Trip distance: {trip_distance}, time {env.now}&#34;)
+
+                        # calculate driver reward
+                        reward = driver.trip_reward_weight * trip_i.get_net_reward()
+                        if add_reward:
+                            reward += driver.reward_amount
+
+                    else:
+                        env.process(release_driver(env, driver, driver_pools))
+                        trip_i.drop_driver(driver.id, driver.location)
+                        reward = 0
+
+                    # Save the (state, action) pair in the driver&#39;s history.
+                    state_dict[&#39;observation&#39;] = observations
+                    state_dict[&#39;reward&#39;] = reward
+                    state_dict[&#39;action&#39;] = action
+                    driver.state_history.append(state_dict)
+
+        # Handle the interrupt call if the trip doesn&#39;t find a driver.
+        except simpy.Interrupt as interrupt:
+            trip_i.update_search_radius()
+            trip_i.nearest_spots = map_grid.get_nearest_spot(trip_i.pickup_loc, trip_i.search_radius)
+            if interrupt.cause[&#39;cancel&#39;]:
+                trip_i.cancelled = True
+
+    if trip_i.cancelled:
+        logging.debug(f&#34;{trip_i.id} was cancelled!&#34;)
+        return
+
+    yield env.timeout(np.round(trip_distance * TIME_PER_GRID_UNIT))
+
+    # Get the closest driver pool id and release the drive to the pool.
+    closest_driver_pool_id = map_grid.get_nearest_spot(trip_i.drop_loc)[0]
+    driver.spot_id = closest_driver_pool_id
+    driver.idle_time_begin = env.now
+
+    env.process(release_driver(env, driver, driver_pools))
+    logging.debug(
+        f&#34;{trip_i.id} finished the trip and released driver {driver.id} at {env.now} to pool {closest_driver_pool_id}&#34;)</code></pre>
+</details>
+</dd>
+<dt id="RideSimulator.taxi_sim.release_driver"><code class="name flex">
+<span>def <span class="ident">release_driver</span></span>(<span>env: simpy.core.Environment, driver: <a title="RideSimulator.Driver.Driver" href="Driver.html#RideSimulator.Driver.Driver">Driver</a>, driver_pool: simpy.resources.store.FilterStore)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>After a trip is completed the driver is released to the nearest driver pool</p>
+<p>:param env: simpy environment
+:param driver: driver object
+:param driver_pool: nearest driver pool</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def release_driver(env: simpy.Environment, driver: Driver, driver_pool: simpy.FilterStore):
+    &#34;&#34;&#34;
+    After a trip is completed the driver is released to the nearest driver pool
+
+    :param env: simpy environment
+    :param driver: driver object
+    :param driver_pool: nearest driver pool
+    &#34;&#34;&#34;
+    if env.now % TIME_UNITS_PER_MIN == 0:
+        yield env.timeout(1)
+    driver.in_trip = False
+    driver_pool.put(driver)</code></pre>
+</details>
+</dd>
+<dt id="RideSimulator.taxi_sim.reset_week"><code class="name flex">
+<span>def <span class="ident">reset_week</span></span>(<span>env: simpy.core.Environment, driver_list: [<class '<a title="RideSimulator.Driver.Driver" href="Driver.html#RideSimulator.Driver.Driver">Driver</a>'>])</span>
+</code></dt>
+<dd>
+<div class="desc"><p>After a week is completed in the simulation there are several parameters to be reset. Such as,
+- Driver trip count
+- Driver weekly reward status
+- Driver weekly goals and reward
+Ths process takes care of those parameter once the simulation completes a week.</p>
+<p>:param env: simpy environment
+:param driver_list: list of drivers that the parameters should be reset</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def reset_week(env: simpy.Environment, driver_list: [Driver]):
+    &#34;&#34;&#34;
+    After a week is completed in the simulation there are several parameters to be reset. Such as,
+        - Driver trip count
+        - Driver weekly reward status
+        - Driver weekly goals and reward
+    Ths process takes care of those parameter once the simulation completes a week.
+
+    :param env: simpy environment
+    :param driver_list: list of drivers that the parameters should be reset
+    &#34;&#34;&#34;
+    week_duration = UNITS_PER_DAY * 7
+    num_weeks = RUN_TIME // week_duration
+    count = 0
+
+    while count &lt; num_weeks:
+        yield env.timeout(week_duration)
+        count += 1
+        logging.debug(f&#34;{&#39;*&#39; * 20} Updating driver goals {&#39;*&#39; * 20}\n&#34;)
+        for driver in driver_list:
+            # Based on the current number of trips completed the goals for the next week is calculated.
+            next_goal, next_reward = rp.get_next_goal(driver.weekly_trip_count)
+            logging.debug(
+                f&#34;Driver {driver.id} completed {driver.weekly_trip_count} trips, &#34;
+                f&#34;New goal: {next_goal}, New reward: {next_reward}&#34;)
+            driver.reset_weekly_info(next_goal, next_reward)
+        logging.debug(&#34;\n&#34;)</code></pre>
+</details>
+</dd>
+<dt id="RideSimulator.taxi_sim.run_simulation"><code class="name flex">
+<span>def <span class="ident">run_simulation</span></span>(<span>policy: list = None, debug=False, progress_bar=False, seed=None) ‑> dict</span>
+</code></dt>
+<dd>
+<div class="desc"><p>This function is called with the policy list to start the simulation.</p>
+<p>:param seed:
+:param policy: lost of policies
+:param debug: toggle debug log
+:param progress_bar: toggle progress bar
+:return: a dictionary containing the history of all the drivers with respective to the policy they used.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def run_simulation(policy: list = None, debug=False, progress_bar=False, seed=None) -&gt; dict:
+    &#34;&#34;&#34;
+    This function is called with the policy list to start the simulation.
+
+    :param seed:
+    :param policy: lost of policies
+    :param debug: toggle debug log
+    :param progress_bar: toggle progress bar
+    :return: a dictionary containing the history of all the drivers with respective to the policy they used.
+    &#34;&#34;&#34;
+    if debug:
+        logging.basicConfig(level=logging.DEBUG)
+
+    if policy is None:
+        policy = [&#39;random&#39;]
+    
+    if len(policy) &gt; 1:
+        print(&#34;Multiple policies given, training driver subsets&#34;)
+        
+    elif policy[0] == &#34;random&#34;:
+        print(&#34;Using random policy&#34;)
+
+    elif policy[0] == &#34;positive&#34;:
+        print(&#34;Using positive reward policy&#34;)
+
+    elif policy[0] == &#34;all&#34;:
+        print(&#34;Using accept all policy&#34;)
+
+    else:
+        if type(policy[0] == &#39;str&#39;):
+            print(&#34;No valid action provided, using random policy&#34;)
+
+    driver_count = DRIVER_COUNT
+    interval = 6
+    grid_width = GRID_WIDTH  # 3809
+    grid_height = GRID_HEIGHT  # 2622
+    hex_area = HEX_AREA
+
+    env = simpy.Environment()
+    map_grid = Grid(env=env, width=grid_width, height=grid_height, interval=interval, num_drivers=driver_count,
+                    hex_area=hex_area, units_per_km=GRID_UNITS_PER_KM, seed=seed)
+    driver_list = create_drivers(env, driver_count, map_grid)
+    driver_pools = map_grid.driver_pools
+    trip_history = []
+
+    env.process(
+        generate_trips(env, map_grid, driver_pools, policy, trip_history, RUN_TIME, progress_bar=progress_bar,
+                       seed=seed))
+    env.process(reset_week(env, driver_list=driver_list))
+    env.run(until=(RUN_TIME + TIME_UNITS_PER_MIN * 60 * 5))
+
+    analyzer = SimAnalyzer(trips=trip_history, drivers=driver_list, actions=DRIVER_ACTIONS)
+
+    if len(driver_pools.items) != len(driver_list):
+        logging.warning(f&#39;{&#34;*&#34; * 30} &#34;DRIVERS MISSING!&#34; {&#34;*&#34; * 30}&#39;)
+
+    driver_states = defaultdict(list)
+    for item in driver_pools.items:
+        driver_states[item.id % len(policy)].append(item.state_history)
+
+    print(&#34;Number of trips generated:&#34;, len(trip_history))
+    return driver_states, analyzer</code></pre>
+</details>
+</dd>
+<dt id="RideSimulator.taxi_sim.update_parameters"><code class="name flex">
+<span>def <span class="ident">update_parameters</span></span>(<span>param_dict)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def update_parameters(param_dict):
+    global TRIPS_PER_WEEK, NUM_DAYS, DRIVER_COUNT, GRID_WIDTH, GRID_HEIGHT, HEX_AREA, RUN_TIME
+    parameters = [&#34;TRIPS_PER_WEEK&#34;, &#34;NUM_DAYS&#34;, &#34;DRIVER_COUNT&#34;, &#34;GRID_WIDTH&#34;, &#34;GRID_HEIGHT&#34;, &#34;HEX_AREA&#34;]
+    for param in parameters:
+        if param in param_dict:
+            if param == &#34;TRIPS_PER_WEEK&#34;:
+                TRIPS_PER_WEEK = param_dict[param]
+            if param == &#34;NUM_DAYS&#34;:
+                NUM_DAYS = param_dict[param]
+            if param == &#34;DRIVER_COUNT&#34;:
+                DRIVER_COUNT = param_dict[param]
+            if param == &#34;GRID_WIDTH&#34;:
+                GRID_WIDTH = param_dict[param]
+            if param == &#34;GRID_HEIGHT&#34;:
+                GRID_HEIGHT = param_dict[param]
+            if param == &#34;HEX_AREA&#34;:
+                HEX_AREA = param_dict[param]
+    RUN_TIME = UNITS_PER_DAY * NUM_DAYS</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="RideSimulator" href="index.html">RideSimulator</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="two-column">
+<li><code><a title="RideSimulator.taxi_sim.check_hotspots" href="#RideSimulator.taxi_sim.check_hotspots">check_hotspots</a></code></li>
+<li><code><a title="RideSimulator.taxi_sim.check_trip_status" href="#RideSimulator.taxi_sim.check_trip_status">check_trip_status</a></code></li>
+<li><code><a title="RideSimulator.taxi_sim.create_drivers" href="#RideSimulator.taxi_sim.create_drivers">create_drivers</a></code></li>
+<li><code><a title="RideSimulator.taxi_sim.generate_trips" href="#RideSimulator.taxi_sim.generate_trips">generate_trips</a></code></li>
+<li><code><a title="RideSimulator.taxi_sim.get_env_state" href="#RideSimulator.taxi_sim.get_env_state">get_env_state</a></code></li>
+<li><code><a title="RideSimulator.taxi_sim.handle_trip" href="#RideSimulator.taxi_sim.handle_trip">handle_trip</a></code></li>
+<li><code><a title="RideSimulator.taxi_sim.release_driver" href="#RideSimulator.taxi_sim.release_driver">release_driver</a></code></li>
+<li><code><a title="RideSimulator.taxi_sim.reset_week" href="#RideSimulator.taxi_sim.reset_week">reset_week</a></code></li>
+<li><code><a title="RideSimulator.taxi_sim.run_simulation" href="#RideSimulator.taxi_sim.run_simulation">run_simulation</a></code></li>
+<li><code><a title="RideSimulator.taxi_sim.update_parameters" href="#RideSimulator.taxi_sim.update_parameters">update_parameters</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>

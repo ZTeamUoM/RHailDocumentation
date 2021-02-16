@@ -1,0 +1,660 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>RideSimulator.sim_analyzer API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>RideSimulator.sim_analyzer</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import numpy as np
+import pandas as pd
+import matplotlib.patches as mpatches
+
+from RideSimulator.Trip import Trip
+from matplotlib import pyplot as plt
+from matplotlib.collections import PolyCollection
+
+
+class SimAnalyzer(object):
+    def __init__(self, trips: [Trip], drivers, actions):
+        self.trips = trips
+        self.total_trips = len(trips)
+        self.drivers = drivers
+        self.driver_actions = pd.DataFrame(
+            actions,
+            columns=[&#34;trip_id&#34;, &#34;driver_id&#34;, &#34;created_time&#34;, &#34;assigned_time&#34;, &#34;pickup_loc&#34;, &#34;drop_loc&#34;, &#34;driver_loc&#34;,
+                     &#34;pickup_time&#34;, &#34;travel_time&#34;, &#34;driver_action&#34;]).set_index([&#34;trip_id&#34;, &#34;driver_id&#34;])
+
+        self.trip_data = pd.DataFrame(
+            [vars(t) for t in trips]).drop(columns=[&#34;driver&#34;, &#34;env&#34;]).set_index(&#34;id&#34;)
+
+    def get_completed_trips(self, driver_info=False):
+        t_count = 0
+        for driver in self.drivers:
+            d_t_count = driver.weekly_trip_count
+            t_count += d_t_count
+            if driver_info:
+                print(f&#34;Driver {driver.id} completed {d_t_count} trips&#34;)
+
+        return t_count
+
+    def extract_trip_locations(self):
+        return self.trip_data[&#34;pickup_loc&#34;], self.trip_data[&#34;drop_loc&#34;]
+
+    def get_trip_data(self):
+        return self.trip_data
+
+    def cumulative_net_trip_reward(self):
+        net_rewards = self.trip_data[&#34;trip_reward&#34;] - self.trip_data[&#34;total_cost&#34;]
+        return net_rewards
+
+    def driver_rewards(self, driver_info=False):
+        d_rewards = []
+        for driver in self.drivers:
+            d_rewards.append([driver.total_reward, driver.weekly_reward_reached])
+            # if driver_info:
+            # print(
+            #    f&#34;{driver.id} obtained a reward of {driver.total_reward} and &#34;
+            #    f&#34;{&#39;&#39; if driver.weekly_reward_reached else &#39;did not&#39;} achieved his weekly target&#34;)
+        return d_rewards
+
+    def trip_distribution(self):
+        self.trip_data[&#34;created_time&#34;].hist(bins=24 * 7)
+        plt.show()
+
+    def completed_percentage(self, only_starved=False):
+        cancelled_df = (self.trip_data[self.trip_data[&#34;cancelled&#34;] == True]).copy()
+        if only_starved:
+            cancelled_df[&#39;num_rejected&#39;] = cancelled_df[&#39;rejected_drivers&#39;].apply(len)
+            cancelled_df = cancelled_df[cancelled_df[&#39;num_rejected&#39;] &gt; 0]
+
+        return (self.total_trips - len(cancelled_df)) / self.total_trips
+
+    def plot_rejected_trips(self):
+        cancelled_trips = self.trip_data[self.trip_data[&#34;cancelled&#34;] == True]
+        pick_loc = cancelled_trips[&#39;pickup_loc&#39;].values.tolist()
+        drop_loc = cancelled_trips[&#39;drop_loc&#39;].values.tolist()
+
+        for line in zip(pick_loc, drop_loc):
+            line = np.array(line)
+            plt.plot(line[:, 0], line[:, 1], color=&#39;black&#39;, zorder=1)
+            plt.scatter(line[0, 0], line[0, 1], marker=&#39;o&#39;, color=&#39;green&#39;, zorder=2)
+            plt.scatter(line[1, 0], line[1, 1], marker=&#39;x&#39;, color=&#39;red&#39;, zorder=2)
+
+        if len(pick_loc) &gt; 0:
+            plt.show()
+
+    def plot_driver_states(self, driver_id, trip_count=50, start_time=0, fig_size=(30, 2), legend_size=6,
+                           xtick_size=10):
+        driver_data = self.driver_actions.xs(driver_id, level=1).copy()
+        driver_data.sort_values(by=&#39;assigned_time&#39;, inplace=True)
+
+        trip_times = []
+        for i in driver_data[[&#39;assigned_time&#39;, &#39;driver_action&#39;, &#39;pickup_time&#39;, &#39;travel_time&#39;]].values:
+            if i[1] == 1:
+                assign_time = i[0]
+                pickup_time = assign_time + i[2]
+                drop_time = pickup_time + i[3]
+                points = [assign_time, pickup_time, drop_time]
+                trip_times.append(points)
+
+        states = {&#39;idle&#39;: 1, &#39;pick_up&#39;: 1, &#39;in_trip&#39;: 1}
+        color_mapping = {&#34;idle&#34;: &#34;C0&#34;, &#34;pick_up&#34;: &#34;C1&#34;, &#34;in_trip&#34;: &#34;C2&#34;}
+        state_mapping = {0: &#34;pick_up&#34;, 1: &#39;in_trip&#39;}
+
+        vertices = []
+        colors = []
+        end_time = start_time
+        for t in trip_times[:trip_count]:
+            if t[2] &lt; end_time:
+                continue
+            v = [
+                (end_time, states[&#39;idle&#39;] - 0.4),
+                (end_time, states[&#39;idle&#39;] + 0.4),
+                (t[0], states[&#39;idle&#39;] + 0.4),
+                (t[0], states[&#39;idle&#39;] - 0.4),
+                (end_time, states[&#39;idle&#39;] - 0.4),
+            ]
+
+            vertices.append(v)
+            colors.append(color_mapping[&#39;idle&#39;])
+
+            for k in range(2):
+                state = states[state_mapping[k]]
+                v = [
+                    (t[k], state - 0.4),
+                    (t[k], state + 0.4),
+                    (t[k + 1], state + 0.4),
+                    (t[k + 1], state - 0.4),
+                    (t[k], state - 0.4),
+                ]
+
+                vertices.append(v)
+                colors.append(color_mapping[state_mapping[k]])
+
+            end_time = t[2]
+
+        bars = PolyCollection(vertices, facecolors=colors)
+
+        fig, ax = plt.subplots(figsize=fig_size)
+        ax.add_collection(bars)
+        ax.get_yaxis().set_visible(False)
+        ax.autoscale()
+
+        ax.tick_params(axis=&#39;x&#39;, which=&#39;major&#39;, labelsize=xtick_size)
+        ax.tick_params(axis=&#39;x&#39;, which=&#39;minor&#39;, labelsize=xtick_size)
+
+        idle = mpatches.Patch(color=&#39;C0&#39;, label=&#39;Idle time&#39;)
+        pick_up = mpatches.Patch(color=&#39;C1&#39;, label=&#39;Pick up time&#39;)
+        in_trip = mpatches.Patch(color=&#39;C2&#39;, label=&#39;Trip time&#39;)
+
+        plt.legend(handles=[idle, pick_up, in_trip], bbox_to_anchor=(1.05, 1), loc=&#39;upper left&#39;, borderaxespad=0.,
+                   prop={&#39;size&#39;: legend_size})
+        plt.show()
+
+    def plot_driver_movement(self, driver_id, number_of_trips, first_trip=0):
+        driver_data = self.driver_actions.xs(driver_id, level=1)
+        driver_data = driver_data[driver_data[&#39;driver_action&#39;] == 1][first_trip:number_of_trips]
+        pick_loc = driver_data[&#39;pickup_loc&#39;]
+        drop_loc = driver_data[&#39;drop_loc&#39;]
+
+        start_loc = driver_data[driver_data[&#39;driver_action&#39;] == 1].iloc[0][&#39;driver_loc&#39;]
+
+        plt.figure(figsize=(10, 10))
+        plt.scatter(start_loc[0], start_loc[1], marker=&#34;*&#34;, color=&#39;purple&#39;, s=400)
+        for line in zip(pick_loc, drop_loc):
+            line = np.array(line)
+            plt.plot([start_loc[0], line[0][0]], [start_loc[1], line[0][1]], color=&#39;black&#39;, zorder=1)
+            plt.plot(line[:, 0], line[:, 1], color=&#39;blue&#39;, zorder=1)
+            plt.scatter(line[0, 0], line[0, 1], marker=&#39;o&#39;, color=&#39;green&#39;, zorder=2)
+            plt.scatter(line[1, 0], line[1, 1], marker=&#39;x&#39;, color=&#39;red&#39;, zorder=2)
+            start_loc = line[1]
+
+        plt.show()</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="RideSimulator.sim_analyzer.SimAnalyzer"><code class="flex name class">
+<span>class <span class="ident">SimAnalyzer</span></span>
+<span>(</span><span>trips: [<class '<a title="RideSimulator.Trip.Trip" href="Trip.html#RideSimulator.Trip.Trip">Trip</a>'>], drivers, actions)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class SimAnalyzer(object):
+    def __init__(self, trips: [Trip], drivers, actions):
+        self.trips = trips
+        self.total_trips = len(trips)
+        self.drivers = drivers
+        self.driver_actions = pd.DataFrame(
+            actions,
+            columns=[&#34;trip_id&#34;, &#34;driver_id&#34;, &#34;created_time&#34;, &#34;assigned_time&#34;, &#34;pickup_loc&#34;, &#34;drop_loc&#34;, &#34;driver_loc&#34;,
+                     &#34;pickup_time&#34;, &#34;travel_time&#34;, &#34;driver_action&#34;]).set_index([&#34;trip_id&#34;, &#34;driver_id&#34;])
+
+        self.trip_data = pd.DataFrame(
+            [vars(t) for t in trips]).drop(columns=[&#34;driver&#34;, &#34;env&#34;]).set_index(&#34;id&#34;)
+
+    def get_completed_trips(self, driver_info=False):
+        t_count = 0
+        for driver in self.drivers:
+            d_t_count = driver.weekly_trip_count
+            t_count += d_t_count
+            if driver_info:
+                print(f&#34;Driver {driver.id} completed {d_t_count} trips&#34;)
+
+        return t_count
+
+    def extract_trip_locations(self):
+        return self.trip_data[&#34;pickup_loc&#34;], self.trip_data[&#34;drop_loc&#34;]
+
+    def get_trip_data(self):
+        return self.trip_data
+
+    def cumulative_net_trip_reward(self):
+        net_rewards = self.trip_data[&#34;trip_reward&#34;] - self.trip_data[&#34;total_cost&#34;]
+        return net_rewards
+
+    def driver_rewards(self, driver_info=False):
+        d_rewards = []
+        for driver in self.drivers:
+            d_rewards.append([driver.total_reward, driver.weekly_reward_reached])
+            # if driver_info:
+            # print(
+            #    f&#34;{driver.id} obtained a reward of {driver.total_reward} and &#34;
+            #    f&#34;{&#39;&#39; if driver.weekly_reward_reached else &#39;did not&#39;} achieved his weekly target&#34;)
+        return d_rewards
+
+    def trip_distribution(self):
+        self.trip_data[&#34;created_time&#34;].hist(bins=24 * 7)
+        plt.show()
+
+    def completed_percentage(self, only_starved=False):
+        cancelled_df = (self.trip_data[self.trip_data[&#34;cancelled&#34;] == True]).copy()
+        if only_starved:
+            cancelled_df[&#39;num_rejected&#39;] = cancelled_df[&#39;rejected_drivers&#39;].apply(len)
+            cancelled_df = cancelled_df[cancelled_df[&#39;num_rejected&#39;] &gt; 0]
+
+        return (self.total_trips - len(cancelled_df)) / self.total_trips
+
+    def plot_rejected_trips(self):
+        cancelled_trips = self.trip_data[self.trip_data[&#34;cancelled&#34;] == True]
+        pick_loc = cancelled_trips[&#39;pickup_loc&#39;].values.tolist()
+        drop_loc = cancelled_trips[&#39;drop_loc&#39;].values.tolist()
+
+        for line in zip(pick_loc, drop_loc):
+            line = np.array(line)
+            plt.plot(line[:, 0], line[:, 1], color=&#39;black&#39;, zorder=1)
+            plt.scatter(line[0, 0], line[0, 1], marker=&#39;o&#39;, color=&#39;green&#39;, zorder=2)
+            plt.scatter(line[1, 0], line[1, 1], marker=&#39;x&#39;, color=&#39;red&#39;, zorder=2)
+
+        if len(pick_loc) &gt; 0:
+            plt.show()
+
+    def plot_driver_states(self, driver_id, trip_count=50, start_time=0, fig_size=(30, 2), legend_size=6,
+                           xtick_size=10):
+        driver_data = self.driver_actions.xs(driver_id, level=1).copy()
+        driver_data.sort_values(by=&#39;assigned_time&#39;, inplace=True)
+
+        trip_times = []
+        for i in driver_data[[&#39;assigned_time&#39;, &#39;driver_action&#39;, &#39;pickup_time&#39;, &#39;travel_time&#39;]].values:
+            if i[1] == 1:
+                assign_time = i[0]
+                pickup_time = assign_time + i[2]
+                drop_time = pickup_time + i[3]
+                points = [assign_time, pickup_time, drop_time]
+                trip_times.append(points)
+
+        states = {&#39;idle&#39;: 1, &#39;pick_up&#39;: 1, &#39;in_trip&#39;: 1}
+        color_mapping = {&#34;idle&#34;: &#34;C0&#34;, &#34;pick_up&#34;: &#34;C1&#34;, &#34;in_trip&#34;: &#34;C2&#34;}
+        state_mapping = {0: &#34;pick_up&#34;, 1: &#39;in_trip&#39;}
+
+        vertices = []
+        colors = []
+        end_time = start_time
+        for t in trip_times[:trip_count]:
+            if t[2] &lt; end_time:
+                continue
+            v = [
+                (end_time, states[&#39;idle&#39;] - 0.4),
+                (end_time, states[&#39;idle&#39;] + 0.4),
+                (t[0], states[&#39;idle&#39;] + 0.4),
+                (t[0], states[&#39;idle&#39;] - 0.4),
+                (end_time, states[&#39;idle&#39;] - 0.4),
+            ]
+
+            vertices.append(v)
+            colors.append(color_mapping[&#39;idle&#39;])
+
+            for k in range(2):
+                state = states[state_mapping[k]]
+                v = [
+                    (t[k], state - 0.4),
+                    (t[k], state + 0.4),
+                    (t[k + 1], state + 0.4),
+                    (t[k + 1], state - 0.4),
+                    (t[k], state - 0.4),
+                ]
+
+                vertices.append(v)
+                colors.append(color_mapping[state_mapping[k]])
+
+            end_time = t[2]
+
+        bars = PolyCollection(vertices, facecolors=colors)
+
+        fig, ax = plt.subplots(figsize=fig_size)
+        ax.add_collection(bars)
+        ax.get_yaxis().set_visible(False)
+        ax.autoscale()
+
+        ax.tick_params(axis=&#39;x&#39;, which=&#39;major&#39;, labelsize=xtick_size)
+        ax.tick_params(axis=&#39;x&#39;, which=&#39;minor&#39;, labelsize=xtick_size)
+
+        idle = mpatches.Patch(color=&#39;C0&#39;, label=&#39;Idle time&#39;)
+        pick_up = mpatches.Patch(color=&#39;C1&#39;, label=&#39;Pick up time&#39;)
+        in_trip = mpatches.Patch(color=&#39;C2&#39;, label=&#39;Trip time&#39;)
+
+        plt.legend(handles=[idle, pick_up, in_trip], bbox_to_anchor=(1.05, 1), loc=&#39;upper left&#39;, borderaxespad=0.,
+                   prop={&#39;size&#39;: legend_size})
+        plt.show()
+
+    def plot_driver_movement(self, driver_id, number_of_trips, first_trip=0):
+        driver_data = self.driver_actions.xs(driver_id, level=1)
+        driver_data = driver_data[driver_data[&#39;driver_action&#39;] == 1][first_trip:number_of_trips]
+        pick_loc = driver_data[&#39;pickup_loc&#39;]
+        drop_loc = driver_data[&#39;drop_loc&#39;]
+
+        start_loc = driver_data[driver_data[&#39;driver_action&#39;] == 1].iloc[0][&#39;driver_loc&#39;]
+
+        plt.figure(figsize=(10, 10))
+        plt.scatter(start_loc[0], start_loc[1], marker=&#34;*&#34;, color=&#39;purple&#39;, s=400)
+        for line in zip(pick_loc, drop_loc):
+            line = np.array(line)
+            plt.plot([start_loc[0], line[0][0]], [start_loc[1], line[0][1]], color=&#39;black&#39;, zorder=1)
+            plt.plot(line[:, 0], line[:, 1], color=&#39;blue&#39;, zorder=1)
+            plt.scatter(line[0, 0], line[0, 1], marker=&#39;o&#39;, color=&#39;green&#39;, zorder=2)
+            plt.scatter(line[1, 0], line[1, 1], marker=&#39;x&#39;, color=&#39;red&#39;, zorder=2)
+            start_loc = line[1]
+
+        plt.show()</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="RideSimulator.sim_analyzer.SimAnalyzer.completed_percentage"><code class="name flex">
+<span>def <span class="ident">completed_percentage</span></span>(<span>self, only_starved=False)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def completed_percentage(self, only_starved=False):
+    cancelled_df = (self.trip_data[self.trip_data[&#34;cancelled&#34;] == True]).copy()
+    if only_starved:
+        cancelled_df[&#39;num_rejected&#39;] = cancelled_df[&#39;rejected_drivers&#39;].apply(len)
+        cancelled_df = cancelled_df[cancelled_df[&#39;num_rejected&#39;] &gt; 0]
+
+    return (self.total_trips - len(cancelled_df)) / self.total_trips</code></pre>
+</details>
+</dd>
+<dt id="RideSimulator.sim_analyzer.SimAnalyzer.cumulative_net_trip_reward"><code class="name flex">
+<span>def <span class="ident">cumulative_net_trip_reward</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def cumulative_net_trip_reward(self):
+    net_rewards = self.trip_data[&#34;trip_reward&#34;] - self.trip_data[&#34;total_cost&#34;]
+    return net_rewards</code></pre>
+</details>
+</dd>
+<dt id="RideSimulator.sim_analyzer.SimAnalyzer.driver_rewards"><code class="name flex">
+<span>def <span class="ident">driver_rewards</span></span>(<span>self, driver_info=False)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def driver_rewards(self, driver_info=False):
+    d_rewards = []
+    for driver in self.drivers:
+        d_rewards.append([driver.total_reward, driver.weekly_reward_reached])
+        # if driver_info:
+        # print(
+        #    f&#34;{driver.id} obtained a reward of {driver.total_reward} and &#34;
+        #    f&#34;{&#39;&#39; if driver.weekly_reward_reached else &#39;did not&#39;} achieved his weekly target&#34;)
+    return d_rewards</code></pre>
+</details>
+</dd>
+<dt id="RideSimulator.sim_analyzer.SimAnalyzer.extract_trip_locations"><code class="name flex">
+<span>def <span class="ident">extract_trip_locations</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def extract_trip_locations(self):
+    return self.trip_data[&#34;pickup_loc&#34;], self.trip_data[&#34;drop_loc&#34;]</code></pre>
+</details>
+</dd>
+<dt id="RideSimulator.sim_analyzer.SimAnalyzer.get_completed_trips"><code class="name flex">
+<span>def <span class="ident">get_completed_trips</span></span>(<span>self, driver_info=False)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_completed_trips(self, driver_info=False):
+    t_count = 0
+    for driver in self.drivers:
+        d_t_count = driver.weekly_trip_count
+        t_count += d_t_count
+        if driver_info:
+            print(f&#34;Driver {driver.id} completed {d_t_count} trips&#34;)
+
+    return t_count</code></pre>
+</details>
+</dd>
+<dt id="RideSimulator.sim_analyzer.SimAnalyzer.get_trip_data"><code class="name flex">
+<span>def <span class="ident">get_trip_data</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_trip_data(self):
+    return self.trip_data</code></pre>
+</details>
+</dd>
+<dt id="RideSimulator.sim_analyzer.SimAnalyzer.plot_driver_movement"><code class="name flex">
+<span>def <span class="ident">plot_driver_movement</span></span>(<span>self, driver_id, number_of_trips, first_trip=0)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def plot_driver_movement(self, driver_id, number_of_trips, first_trip=0):
+    driver_data = self.driver_actions.xs(driver_id, level=1)
+    driver_data = driver_data[driver_data[&#39;driver_action&#39;] == 1][first_trip:number_of_trips]
+    pick_loc = driver_data[&#39;pickup_loc&#39;]
+    drop_loc = driver_data[&#39;drop_loc&#39;]
+
+    start_loc = driver_data[driver_data[&#39;driver_action&#39;] == 1].iloc[0][&#39;driver_loc&#39;]
+
+    plt.figure(figsize=(10, 10))
+    plt.scatter(start_loc[0], start_loc[1], marker=&#34;*&#34;, color=&#39;purple&#39;, s=400)
+    for line in zip(pick_loc, drop_loc):
+        line = np.array(line)
+        plt.plot([start_loc[0], line[0][0]], [start_loc[1], line[0][1]], color=&#39;black&#39;, zorder=1)
+        plt.plot(line[:, 0], line[:, 1], color=&#39;blue&#39;, zorder=1)
+        plt.scatter(line[0, 0], line[0, 1], marker=&#39;o&#39;, color=&#39;green&#39;, zorder=2)
+        plt.scatter(line[1, 0], line[1, 1], marker=&#39;x&#39;, color=&#39;red&#39;, zorder=2)
+        start_loc = line[1]
+
+    plt.show()</code></pre>
+</details>
+</dd>
+<dt id="RideSimulator.sim_analyzer.SimAnalyzer.plot_driver_states"><code class="name flex">
+<span>def <span class="ident">plot_driver_states</span></span>(<span>self, driver_id, trip_count=50, start_time=0, fig_size=(30, 2), legend_size=6, xtick_size=10)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def plot_driver_states(self, driver_id, trip_count=50, start_time=0, fig_size=(30, 2), legend_size=6,
+                       xtick_size=10):
+    driver_data = self.driver_actions.xs(driver_id, level=1).copy()
+    driver_data.sort_values(by=&#39;assigned_time&#39;, inplace=True)
+
+    trip_times = []
+    for i in driver_data[[&#39;assigned_time&#39;, &#39;driver_action&#39;, &#39;pickup_time&#39;, &#39;travel_time&#39;]].values:
+        if i[1] == 1:
+            assign_time = i[0]
+            pickup_time = assign_time + i[2]
+            drop_time = pickup_time + i[3]
+            points = [assign_time, pickup_time, drop_time]
+            trip_times.append(points)
+
+    states = {&#39;idle&#39;: 1, &#39;pick_up&#39;: 1, &#39;in_trip&#39;: 1}
+    color_mapping = {&#34;idle&#34;: &#34;C0&#34;, &#34;pick_up&#34;: &#34;C1&#34;, &#34;in_trip&#34;: &#34;C2&#34;}
+    state_mapping = {0: &#34;pick_up&#34;, 1: &#39;in_trip&#39;}
+
+    vertices = []
+    colors = []
+    end_time = start_time
+    for t in trip_times[:trip_count]:
+        if t[2] &lt; end_time:
+            continue
+        v = [
+            (end_time, states[&#39;idle&#39;] - 0.4),
+            (end_time, states[&#39;idle&#39;] + 0.4),
+            (t[0], states[&#39;idle&#39;] + 0.4),
+            (t[0], states[&#39;idle&#39;] - 0.4),
+            (end_time, states[&#39;idle&#39;] - 0.4),
+        ]
+
+        vertices.append(v)
+        colors.append(color_mapping[&#39;idle&#39;])
+
+        for k in range(2):
+            state = states[state_mapping[k]]
+            v = [
+                (t[k], state - 0.4),
+                (t[k], state + 0.4),
+                (t[k + 1], state + 0.4),
+                (t[k + 1], state - 0.4),
+                (t[k], state - 0.4),
+            ]
+
+            vertices.append(v)
+            colors.append(color_mapping[state_mapping[k]])
+
+        end_time = t[2]
+
+    bars = PolyCollection(vertices, facecolors=colors)
+
+    fig, ax = plt.subplots(figsize=fig_size)
+    ax.add_collection(bars)
+    ax.get_yaxis().set_visible(False)
+    ax.autoscale()
+
+    ax.tick_params(axis=&#39;x&#39;, which=&#39;major&#39;, labelsize=xtick_size)
+    ax.tick_params(axis=&#39;x&#39;, which=&#39;minor&#39;, labelsize=xtick_size)
+
+    idle = mpatches.Patch(color=&#39;C0&#39;, label=&#39;Idle time&#39;)
+    pick_up = mpatches.Patch(color=&#39;C1&#39;, label=&#39;Pick up time&#39;)
+    in_trip = mpatches.Patch(color=&#39;C2&#39;, label=&#39;Trip time&#39;)
+
+    plt.legend(handles=[idle, pick_up, in_trip], bbox_to_anchor=(1.05, 1), loc=&#39;upper left&#39;, borderaxespad=0.,
+               prop={&#39;size&#39;: legend_size})
+    plt.show()</code></pre>
+</details>
+</dd>
+<dt id="RideSimulator.sim_analyzer.SimAnalyzer.plot_rejected_trips"><code class="name flex">
+<span>def <span class="ident">plot_rejected_trips</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def plot_rejected_trips(self):
+    cancelled_trips = self.trip_data[self.trip_data[&#34;cancelled&#34;] == True]
+    pick_loc = cancelled_trips[&#39;pickup_loc&#39;].values.tolist()
+    drop_loc = cancelled_trips[&#39;drop_loc&#39;].values.tolist()
+
+    for line in zip(pick_loc, drop_loc):
+        line = np.array(line)
+        plt.plot(line[:, 0], line[:, 1], color=&#39;black&#39;, zorder=1)
+        plt.scatter(line[0, 0], line[0, 1], marker=&#39;o&#39;, color=&#39;green&#39;, zorder=2)
+        plt.scatter(line[1, 0], line[1, 1], marker=&#39;x&#39;, color=&#39;red&#39;, zorder=2)
+
+    if len(pick_loc) &gt; 0:
+        plt.show()</code></pre>
+</details>
+</dd>
+<dt id="RideSimulator.sim_analyzer.SimAnalyzer.trip_distribution"><code class="name flex">
+<span>def <span class="ident">trip_distribution</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def trip_distribution(self):
+    self.trip_data[&#34;created_time&#34;].hist(bins=24 * 7)
+    plt.show()</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="RideSimulator" href="index.html">RideSimulator</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="RideSimulator.sim_analyzer.SimAnalyzer" href="#RideSimulator.sim_analyzer.SimAnalyzer">SimAnalyzer</a></code></h4>
+<ul class="">
+<li><code><a title="RideSimulator.sim_analyzer.SimAnalyzer.completed_percentage" href="#RideSimulator.sim_analyzer.SimAnalyzer.completed_percentage">completed_percentage</a></code></li>
+<li><code><a title="RideSimulator.sim_analyzer.SimAnalyzer.cumulative_net_trip_reward" href="#RideSimulator.sim_analyzer.SimAnalyzer.cumulative_net_trip_reward">cumulative_net_trip_reward</a></code></li>
+<li><code><a title="RideSimulator.sim_analyzer.SimAnalyzer.driver_rewards" href="#RideSimulator.sim_analyzer.SimAnalyzer.driver_rewards">driver_rewards</a></code></li>
+<li><code><a title="RideSimulator.sim_analyzer.SimAnalyzer.extract_trip_locations" href="#RideSimulator.sim_analyzer.SimAnalyzer.extract_trip_locations">extract_trip_locations</a></code></li>
+<li><code><a title="RideSimulator.sim_analyzer.SimAnalyzer.get_completed_trips" href="#RideSimulator.sim_analyzer.SimAnalyzer.get_completed_trips">get_completed_trips</a></code></li>
+<li><code><a title="RideSimulator.sim_analyzer.SimAnalyzer.get_trip_data" href="#RideSimulator.sim_analyzer.SimAnalyzer.get_trip_data">get_trip_data</a></code></li>
+<li><code><a title="RideSimulator.sim_analyzer.SimAnalyzer.plot_driver_movement" href="#RideSimulator.sim_analyzer.SimAnalyzer.plot_driver_movement">plot_driver_movement</a></code></li>
+<li><code><a title="RideSimulator.sim_analyzer.SimAnalyzer.plot_driver_states" href="#RideSimulator.sim_analyzer.SimAnalyzer.plot_driver_states">plot_driver_states</a></code></li>
+<li><code><a title="RideSimulator.sim_analyzer.SimAnalyzer.plot_rejected_trips" href="#RideSimulator.sim_analyzer.SimAnalyzer.plot_rejected_trips">plot_rejected_trips</a></code></li>
+<li><code><a title="RideSimulator.sim_analyzer.SimAnalyzer.trip_distribution" href="#RideSimulator.sim_analyzer.SimAnalyzer.trip_distribution">trip_distribution</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>
